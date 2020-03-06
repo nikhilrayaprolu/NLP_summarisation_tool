@@ -1,0 +1,33 @@
+<% content_for :top_content do %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Welcome!</h1>
+      <p>Register to get started.</p>
+      <p>
+        <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+      </p>
+    </div>
+  </div>
+<% end %>
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+<%= will_paginate @posts %>
+<table>
+  <tr>
+    <td><b>Id</b></td>
+    <td><b>Title</b></td>
+    <td><b>Body</b></td>
+    <td><b>Edit</b></td>
+    <td><b>Edit Status</b></td>
+  </tr>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.Id %></td>
+      <td><%= post.Title %></td>
+      <td><%= post.Body[0...100] %></td>
+      <td><%= link_to "Edit", post_path(id: post.Id) %></td>
+      <td>UnEdited</td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @posts %>

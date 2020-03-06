@@ -1,0 +1,22 @@
+
+<%= @post_answers.Body %>
+
+<%= form_for [@post_answers, @post_summaries] do |f| %>
+  <%= f.label 'Abstractive' %>
+  <%= f.text_area :abstractive %>
+  <br /><br />
+  <%= f.label :extractive %>
+  <%= f.text_field :extractive %>
+  <br /><br />
+  <%= f.submit %>
+<% end %>
+  <% if (params[:current_answer].to_i > 0) %>
+  <%= link_to "Previous", post_answer_path(post_id: params[:post_id], current_answer: params[:current_answer].to_i - 1) %>
+  <% end %>
+  <% if (params[:current_answer].to_i < @post_answers_length - 1) %>
+    <%= link_to "Next", post_answer_path(post_id: params[:post_id], current_answer: params[:current_answer].to_i + 1) %>
+  <% end %>
+  <% if (params[:current_answer].to_i == @post_answers_length - 1) %>
+    <%= link_to "Summarise all summaries", question_summariser_path(post_id: params[:post_id]) %>
+
+<% end %>

@@ -1,0 +1,21 @@
+
+<%= @post.Body %>
+
+<table>
+  <tr>
+    <td><b>Id</b></td>
+    <td><b>Title</b></td>
+    <td><b>Body</b></td>
+    <td><b>Edit</b></td>
+    <td><b>Edit Status</b></td>
+  </tr>
+<% @post_answers.each_with_index do |post, idx| %>
+  <tr>
+    <td><%= post.Id %></td>
+    <td><%= post.Title %></td>
+    <td><%= post.Body[0...100] %></td>
+    <td><%= link_to "Edit", post_answer_path(post_id: @post.Id, current_answer: idx) %></td>
+    <td>UnEdited</td>
+  </tr>
+<% end %>
+</table>

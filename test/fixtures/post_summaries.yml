@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  post: one
+  PostType: 1
+  abstractive: MyText
+  extractive: MyText
+
+two:
+  post: two
+  PostType: 1
+  abstractive: MyText
+  extractive: MyText

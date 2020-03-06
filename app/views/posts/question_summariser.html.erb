@@ -1,0 +1,19 @@
+<%= @post.Body %>
+
+<% @post_summaries.each_with_index do |post_summary, idx| %>
+  <tr>
+    <td><%= post_summary.abstractive %></td>
+    <td><%= post_summary.extractive %></td>
+  </tr>
+<% end %>
+
+<%= form_for [@post, @new_post_summary] do |f| %>
+  <%= f.label 'Abstractive' %>
+  <%= f.text_area :abstractive %>
+  <br /><br />
+  <%= f.label :extractive %>
+  <%= f.text_field :extractive %>
+  <br /><br />
+  <%= f.submit %>
+<% end %>
+
